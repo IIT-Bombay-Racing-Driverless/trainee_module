@@ -1,0 +1,17 @@
+[0.000000] (-) TimerEvent: {}
+[0.001029] (-) JobUnselected: {'identifier': 'dv_msgs'}
+[0.001131] (-) JobUnselected: {'identifier': 'velodyne'}
+[0.001277] (-) JobUnselected: {'identifier': 'velodyne_driver'}
+[0.001444] (-) JobUnselected: {'identifier': 'velodyne_laserscan'}
+[0.001503] (-) JobUnselected: {'identifier': 'velodyne_msgs'}
+[0.001556] (-) JobUnselected: {'identifier': 'velodyne_pcl'}
+[0.001621] (-) JobUnselected: {'identifier': 'velodyne_pointcloud'}
+[0.001723] (-) JobUnselected: {'identifier': 'zed_interfaces'}
+[0.001873] (zed_components) JobQueued: {'identifier': 'zed_components', 'dependencies': OrderedDict([('zed_interfaces', '/home/pyrosage/trainee_module/install/zed_interfaces')])}
+[0.002038] (zed_wrapper) JobQueued: {'identifier': 'zed_wrapper', 'dependencies': OrderedDict([('zed_interfaces', '/home/pyrosage/trainee_module/install/zed_interfaces'), ('zed_components', '/home/pyrosage/trainee_module/install/zed_components')])}
+[0.002111] (zed_ros2) JobQueued: {'identifier': 'zed_ros2', 'dependencies': OrderedDict([('zed_interfaces', '/home/pyrosage/trainee_module/install/zed_interfaces'), ('zed_components', '/home/pyrosage/trainee_module/install/zed_components'), ('zed_wrapper', '/home/pyrosage/trainee_module/install/zed_wrapper')])}
+[0.002254] (zed_components) JobStarted: {'identifier': 'zed_components'}
+[0.013527] (zed_components) JobEnded: {'identifier': 'zed_components', 'rc': 1}
+[0.024300] (zed_wrapper) JobSkipped: {'identifier': 'zed_wrapper'}
+[0.024413] (zed_ros2) JobSkipped: {'identifier': 'zed_ros2'}
+[0.024457] (-) EventReactorShutdown: {}
