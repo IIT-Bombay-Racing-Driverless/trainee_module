@@ -1,2 +1,0 @@
-Invoking command in '/home/pyrosage/trainee_module/build/zed_components': CMAKE_PREFIX_PATH=/opt/ros/galactic /usr/bin/cmake /home/pyrosage/trainee_module/src/zed-ros2-wrapper/zed_components -DCMAKE_INSTALL_PREFIX=/home/pyrosage/trainee_module/install/zed_components
-Invoked command in '/home/pyrosage/trainee_module/build/zed_components' returned '1': CMAKE_PREFIX_PATH=/opt/ros/galactic /usr/bin/cmake /home/pyrosage/trainee_module/src/zed-ros2-wrapper/zed_components -DCMAKE_INSTALL_PREFIX=/home/pyrosage/trainee_module/install/zed_components
