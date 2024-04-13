@@ -1,0 +1,21 @@
+[0.037s] Invoking command in '/home/pyrosage/trainee_module/build/velodyne_laserscan': /usr/bin/cmake /home/pyrosage/trainee_module/src/velodyne/velodyne_laserscan -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/pyrosage/trainee_module/install/velodyne_laserscan
+[0.102s] -- Configuring incomplete, errors occurred!
+[0.102s] See also "/home/pyrosage/trainee_module/build/velodyne_laserscan/CMakeFiles/CMakeOutput.log".
+[0.102s] CMake Error at CMakeLists.txt:13 (find_package):
+[0.102s]   By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+[0.102s]   asked CMake to find a package configuration file provided by "catkin", but
+[0.103s]   CMake did not find one.
+[0.103s] 
+[0.103s]   Could not find a package configuration file provided by "catkin" with any
+[0.103s]   of the following names:
+[0.103s] 
+[0.103s]     catkinConfig.cmake
+[0.104s]     catkin-config.cmake
+[0.104s] 
+[0.104s]   Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set
+[0.104s]   "catkin_DIR" to a directory containing one of the above files.  If "catkin"
+[0.104s]   provides a separate development package or SDK, be sure it has been
+[0.104s]   installed.
+[0.104s] 
+[0.104s] 
+[0.113s] Invoked command in '/home/pyrosage/trainee_module/build/velodyne_laserscan' returned '1': /usr/bin/cmake /home/pyrosage/trainee_module/src/velodyne/velodyne_laserscan -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/pyrosage/trainee_module/install/velodyne_laserscan

@@ -1,0 +1,2 @@
+Invoking command in '/home/pyrosage/trainee_module/build/velodyne_msgs': /usr/bin/cmake /home/pyrosage/trainee_module/src/velodyne/velodyne_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/pyrosage/trainee_module/install/velodyne_msgs
+Invoked command in '/home/pyrosage/trainee_module/build/velodyne_msgs' returned '1': /usr/bin/cmake /home/pyrosage/trainee_module/src/velodyne/velodyne_msgs -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/pyrosage/trainee_module/install/velodyne_msgs

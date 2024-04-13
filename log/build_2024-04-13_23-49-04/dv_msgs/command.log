@@ -1,0 +1,1 @@
+Invoking command in '/home/pyrosage/trainee_module/build/dv_msgs': /usr/bin/cmake /home/pyrosage/trainee_module/src/dv_msgs -DCMAKE_INSTALL_PREFIX=/home/pyrosage/trainee_module/install/dv_msgs
