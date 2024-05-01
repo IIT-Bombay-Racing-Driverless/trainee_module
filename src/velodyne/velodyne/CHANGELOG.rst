@@ -1,17 +1,60 @@
 Change history
 ==============
 
-1.7.0 (2022-07-08)
+2.4.0 (2023-05-27)
+------------------
+* Unify tf frame parameters between transform and cloud nodes (`#344 <https://github.com/ros-drivers/velodyne/issues/344>`_) (`#453 <https://github.com/ros-drivers/velodyne/issues/453>`_)
+  * Unify tf frame parameters between transform and cloud nodes
+  At this point there is no need any more for cloud node because transform node includes all features of cloud node.
+  Co-authored-by: AndreasR30 <andreas-reich@live.de>
+  Co-authored-by: anre <andreas.reich@unibw.de>
+* Contributors: Daisuke Nishimatsu
+
+2.3.0 (2022-07-08)
+------------------
+* Updating maintainer email address. (`#450 <https://github.com/ros-drivers/velodyne/issues/450>`_)
+  * Updating maintainer email address.
+  * chore: update maintainer email address
+  Co-authored-by: Joshua Whitley <jwhitley@autonomoustuff.com>
+* Replace deprecated argument names in launch (`#430 <https://github.com/ros-drivers/velodyne/issues/430>`_)
+* 2.1.1
+* Updating for first Galactic release
+* Contributors: Daisuke Nishimatsu, Joshua Whitley, Keane Quigley
+
+2.1.1 (2021-08-23)
 ------------------
 
-1.6.1 (2020-11-09)
+2.1.0 (2020-07-10)
 ------------------
 
-1.6.0 (2020-07-09)
+2.0.0 (2020-07-10)
 ------------------
-* Updating maintainer email address.
-* Merge branch 'feature/opc_nopcl' of github.com:spuetz/velodyne into feature/opc_nopcl
-* Contributors: Joshua Whitley, Sebastian Pütz
+* Fixes pointed out by clang-tidy (`#310 <https://github.com/ros-drivers/velodyne/issues/310>`_)
+  * Rearrange header includes so clang-tidy is happy.
+  * Get rid of unnecessary void arguments on methods.
+  * Properly mark methods as override where appropriate.
+  * Initialize members and stack variables to zero before use.
+  * Mark function implementations in header files 'inline'.
+  * Use more efficient 'empty' method instead of empty string.
+  * Get rid of unnecessary else statements after a continue/return.
+  * Get rid of unnecessary == false use.
+  * Make sure to add a virtual destructor to DataContainerBase.
+  * Use string != comparison instead of 'compare' method.
+  * Rename PointcloudXYZIR parameter name to match implementation.
+  * Get rid of usage of typedef.
+  * Be more explicit about using floats.
+  * Do an explicit lround to do int->float conversion.
+  * Fix the intensity calculation.
+  * Remove the azimuth from addPoint.
+  * Make sure to reset the cloud data to 0 before reusing.
+  * Use underscores on pointcloud member variables.
+  * Using std::lround means we don't need to add 0.5 to the result.
+  * Slightly rearrange and simplify range checks.
+  * Add in example launch files for VLP32C.
+* Add in example launch files.
+* Merge pull request `#251 <https://github.com/ros-drivers/velodyne/issues/251>`_ from clalancette/dashing-devel3
+  ROS 2 Dashing port
+* Contributors: Andreas Klintberg, Chris Lalancette, Joshua Whitley, Sebastian Pütz
 
 1.5.2 (2019-01-28)
 ------------------
