@@ -1,4 +1,4 @@
-// Copyright (C) 2012, 2019 Austin Robot Technology, Jack O'Quin, Joshua Whitley
+// Copyright 2012, 2019 Austin Robot Technology, Jack O'Quin, Joshua Whitley
 // All rights reserved.
 //
 // Software License Agreement (BSD License 2.0)
@@ -7,15 +7,15 @@
 // modification, are permitted provided that the following conditions
 // are met:
 //
-//  * Redistributions of source code must retain the above copyright
-//    notice, this list of conditions and the following disclaimer.
-//  * Redistributions in binary form must reproduce the above
-//    copyright notice, this list of conditions and the following
-//    disclaimer in the documentation and/or other materials provided
-//    with the distribution.
-//  * Neither the name of {copyright_holder} nor the names of its
-//    contributors may be used to endorse or promote products derived
-//    from this software without specific prior written permission.
+// * Redistributions of source code must retain the above copyright
+//   notice, this list of conditions and the following disclaimer.
+// * Redistributions in binary form must reproduce the above
+//   copyright notice, this list of conditions and the following
+//   disclaimer in the documentation and/or other materials provided
+//   with the distribution.
+// * Neither the name of {copyright_holder} nor the names of its
+//   contributors may be used to endorse or promote products derived
+//   from this software without specific prior written permission.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 // "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -32,8 +32,9 @@
 
 #include <gtest/gtest.h>
 
-#include <ros/package.h>
-#include <velodyne_pointcloud/calibration.h>
+#include <ament_index_cpp/get_package_share_directory.hpp>
+
+#include <velodyne_pointcloud/calibration.hpp>
 
 #include <string>
 
@@ -42,7 +43,7 @@ using namespace velodyne_pointcloud;  // NOLINT
 std::string get_package_path()
 {
   std::string g_package_name("velodyne_pointcloud");
-  return ros::package::getPath(g_package_name);
+  return ament_index_cpp::get_package_share_directory(g_package_name);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -51,15 +52,15 @@ std::string get_package_path()
 
 TEST(Calibration, missing_file)
 {
-  Calibration calibration(false);
-  calibration.read("./no_such_file.yaml");
-  EXPECT_FALSE(calibration.initialized);
+  EXPECT_THROW(
+    {Calibration calibration("/no_such_file.yaml");},
+    std::runtime_error
+  );
 }
 
 TEST(Calibration, vlp16)
 {
-  Calibration calibration(get_package_path() + "/params/VLP16db.yaml", false);
-  EXPECT_TRUE(calibration.initialized);
+  Calibration calibration(get_package_path() + "/params/VLP16db.yaml");
   ASSERT_EQ(calibration.num_lasers, 16);
 
   // check some values for the first laser:
@@ -81,8 +82,7 @@ TEST(Calibration, vlp16)
 
 TEST(Calibration, hdl32e)
 {
-  Calibration calibration(get_package_path() + "/params/32db.yaml", false);
-  EXPECT_TRUE(calibration.initialized);
+  Calibration calibration(get_package_path() + "/params/32db.yaml");
   ASSERT_EQ(calibration.num_lasers, 32);
 
   // check some values for the first laser:
@@ -104,13 +104,12 @@ TEST(Calibration, hdl32e)
 
 TEST(Calibration, hdl64e)
 {
-  Calibration calibration(get_package_path() + "/params/64e_utexas.yaml", false);
-  EXPECT_TRUE(calibration.initialized);
+  Calibration calibration(get_package_path() + "/params/64e_utexas.yaml");
   ASSERT_EQ(calibration.num_lasers, 64);
 
   // check some values for the first laser:
   LaserCorrection laser = calibration.laser_corrections[0];
-  EXPECT_TRUE(laser.two_pt_correction_available);
+  EXPECT_FALSE(laser.two_pt_correction_available);
   EXPECT_FLOAT_EQ(laser.vert_correction, -0.124932751059532);
   EXPECT_FLOAT_EQ(laser.horiz_offset_correction, 0.0);
   EXPECT_EQ(laser.max_intensity, 255);
@@ -118,7 +117,7 @@ TEST(Calibration, hdl64e)
 
   // check similar values for the last laser:
   laser = calibration.laser_corrections[63];
-  EXPECT_TRUE(laser.two_pt_correction_available);
+  EXPECT_FALSE(laser.two_pt_correction_available);
   EXPECT_FLOAT_EQ(laser.vert_correction, -0.209881335496902);
   EXPECT_FLOAT_EQ(laser.horiz_offset_correction, 0.0);
   EXPECT_EQ(laser.max_intensity, 255);
@@ -127,14 +126,12 @@ TEST(Calibration, hdl64e)
 
 TEST(Calibration, hdl64e_s21)
 {
-  Calibration calibration(get_package_path() + "/params/64e_s2.1-sztaki.yaml",
-                          false);
-  EXPECT_TRUE(calibration.initialized);
+  Calibration calibration(get_package_path() + "/params/64e_s2.1-sztaki.yaml");
   ASSERT_EQ(calibration.num_lasers, 64);
 
   // check some values for the first laser:
   LaserCorrection laser = calibration.laser_corrections[0];
-  EXPECT_TRUE(laser.two_pt_correction_available);
+  EXPECT_FALSE(laser.two_pt_correction_available);
   EXPECT_FLOAT_EQ(laser.vert_correction, -0.15304134919741974);
   EXPECT_FLOAT_EQ(laser.horiz_offset_correction, 0.025999999);
   EXPECT_EQ(laser.max_intensity, 235);
@@ -142,7 +139,7 @@ TEST(Calibration, hdl64e_s21)
 
   // check similar values for the last laser:
   laser = calibration.laser_corrections[63];
-  EXPECT_TRUE(laser.two_pt_correction_available);
+  EXPECT_FALSE(laser.two_pt_correction_available);
   EXPECT_FLOAT_EQ(laser.vert_correction, -0.2106649408137298);
   EXPECT_FLOAT_EQ(laser.horiz_offset_correction, -0.025999999);
   EXPECT_EQ(laser.max_intensity, 255);
@@ -151,10 +148,7 @@ TEST(Calibration, hdl64e_s21)
 
 TEST(Calibration, hdl64e_s2_float_intensities)
 {
-  Calibration calibration(get_package_path() +
-                          "/tests/issue_84_float_intensities.yaml",
-                          false);
-  EXPECT_TRUE(calibration.initialized);
+  Calibration calibration(get_package_path() + "/params/issue_84_float_intensities.yaml");
   ASSERT_EQ(calibration.num_lasers, 64);
 
   // check some values for the first laser:
@@ -181,11 +175,3 @@ TEST(Calibration, hdl64e_s2_float_intensities)
   EXPECT_EQ(laser.max_intensity, 255);
   EXPECT_EQ(laser.min_intensity, 0);
 }
-
-// Run all the tests that were declared with TEST()
-int main(int argc, char **argv)
-{
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
-
