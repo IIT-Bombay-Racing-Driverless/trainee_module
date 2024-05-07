@@ -1,16 +1,32 @@
 Change history
 ==============
 
-1.7.0 (2022-07-08)
+2.4.0 (2023-05-27)
 ------------------
 
-1.6.1 (2020-11-09)
+2.3.0 (2022-07-08)
+------------------
+* Updating maintainer email address. (`#450 <https://github.com/ros-drivers/velodyne/issues/450>`_)
+  * Updating maintainer email address.
+  * chore: update maintainer email address
+  Co-authored-by: Joshua Whitley <jwhitley@autonomoustuff.com>
+* 2.1.1
+* Updating for first Galactic release
+* Contributors: Daisuke Nishimatsu, Joshua Whitley
+
+2.1.1 (2021-08-23)
 ------------------
 
-1.6.0 (2020-07-09)
+2.1.0 (2020-07-10)
 ------------------
-* Updating maintainer email address.
-* Contributors: Joshua Whitley, Sebastian Pütz
+
+2.0.0 (2020-07-10)
+------------------
+* Adding linters to velodyne_msgs. (`#302 <https://github.com/ros-drivers/velodyne/issues/302>`_)
+* Update the documentation for ROS 2.
+* Merge pull request `#251 <https://github.com/ros-drivers/velodyne/issues/251>`_ from clalancette/dashing-devel3
+  ROS 2 Dashing port
+* Contributors: Andreas Klintberg, Chris Lalancette, Joshua Whitley, Sebastian Pütz
 
 1.5.2 (2019-01-28)
 ------------------
